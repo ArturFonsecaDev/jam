@@ -68,6 +68,6 @@ RUN chmod +x /usr/local/bin/start-container
 
 EXPOSE 80/tcp
 
-RUN 
+RUN git config --global --add safe.directory /var/www/html
 
 ENTRYPOINT ["start-container"]

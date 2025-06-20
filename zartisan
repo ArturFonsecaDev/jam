@@ -1,12 +1,46 @@
 #!/bin/bash
 
-# Verifica se o Docker e o Sail estão prontos
-if ! command -v docker &> /dev/null
-then
-    echo "Docker não encontrado. Por favor, instale o Docker."
+#
+# SCRIPT HÍBRIDO E INTELIGENTE PARA COMANDOS ARTISAN
+# Combina a lógica condicional do usuário com a robustez do Docker Compose.
+#
+
+# 1. Verifica se um comando foi passado.
+if [ $# -eq 0 ]; then
+    echo "Nenhum comando artisan foi especificado. Uso: $0 <comando>"
     exit 1
 fi
 
-# Executa o 'php artisan serve' dentro do container Sail
-echo "Iniciando o servidor de desenvolvimento Laravel com Sail..."
-./vendor/bin/sail artisan "$@"
+# 2. Define dinamicamente o usuário/grupo e o nome do serviço.
+export WWWUSER=$(id -u)
+export WWWGROUP=$(id -g)
+SERVICE_NAME="laravel.test"
+
+# 3. Verifica se o ambiente está rodando.
+#    (Necessário para os comandos que usarão 'docker compose exec')
+if [ -z "$(docker compose ps --status=running -q $SERVICE_NAME)" ]; then
+    echo "⚠️  Aviso: O contêiner para o serviço '$SERVICE_NAME' não está em execução."
+    echo "➡️  Inicie o ambiente com: sail up -d"
+    exit 1
+fi
+
+echo "Executando 'php artisan $@' no contêiner..."
+
+# 4. LÓGICA CONDICIONAL MELHORADA
+#    Usa "$1" para verificar o primeiro argumento de forma segura.
+
+if [[ "$1" == "tinker" ]]; then
+    # Para tinker, usamos 'exec' com '-ti' para interatividade.
+    docker compose exec -ti "$SERVICE_NAME" php artisan "$@"
+
+elif [[ "$1" == "make:"* ]] || [[ "$1" == "vendor:publish" ]] || [[ "$1" == "datatable:make"* ]]; then
+    # Para comandos que geram arquivos, usamos 'docker compose run'.
+    # --rm -> Remove o contêiner após o uso.
+    # --user -> SOBRESCREVE o usuário, garantindo permissões corretas.
+    # Ele usa a imagem e rede do seu serviço 'laravel.test', mantendo a consistência.
+    docker compose run --rm --user "$(id -u):$(id -g)" "$SERVICE_NAME" php artisan "$@"
+
+else
+    # Para todos os outros comandos, usamos 'exec' padrão.
+    docker compose exec "$SERVICE_NAME" php artisan "$@"
+fi
