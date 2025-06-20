@@ -1,0 +1,36 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+    artisan|composer|test|php|npm|bash|shell|node-bash|node-shell|root|reset) # <-- Adicionados 'root' e 'reset'
+        COMMAND=$1
+        shift
+
+        case "$COMMAND" in
+            artisan)
+                docker compose exec app php artisan "$@" ;;
+            composer)
+                docker compose exec app composer "$@" ;;
+            npm)
+                docker compose exec node npm "$@" ;;
+            test)
+                docker compose exec app php artisan test "$@" ;;
+            php)
+                docker compose exec app php "$@" ;;
+            bash|shell)
+                docker compose exec app bash ;;
+            node-bash|node-shell)
+                docker compose exec node bash ;;
+            root)
+                docker compose exec --user root app bash ;;
+            reset)
+                echo "🧹 Limpando o ficheiro de trava do setup..."
+                docker compose exec app rm -f storage/app/.docker_setup_complete
+                echo "✅ Pronto! Execute './dev up -d' para forçar uma nova instalação das dependências do PHP."
+                ;;
+        esac
+        ;;
+    *)
+        docker compose "$@"
+        ;;
+esac
