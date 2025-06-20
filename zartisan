@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Verifica se o Docker e o Sail estão prontos
+if ! command -v docker &> /dev/null
+then
+    echo "Docker não encontrado. Por favor, instale o Docker."
+    exit 1
+fi
+
+# Executa o 'php artisan serve' dentro do container Sail
+echo "Iniciando o servidor de desenvolvimento Laravel com Sail..."
+./vendor/bin/sail artisan "$@"
