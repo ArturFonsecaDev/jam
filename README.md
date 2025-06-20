@@ -1,4 +1,4 @@
-# JAM -- OUÇA MÚSICAS COM SEUS AMIGOS -- SEM APPS DE Música
+# JAM -- OUÇA MÚSICAS COM SEUS AMIGOS -- SEM APPS DE MÚSICA
 
 ![Laravel](https://img.shields.io/badge/Laravel-12.x-FF2D20?style=for-the-badge&logo=laravel)
 ![React](https://img.shields.io/badge/React-19.x-20232A?style=for-the-badge&logo=react)
