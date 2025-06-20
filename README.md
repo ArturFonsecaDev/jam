@@ -1,11 +1,11 @@
-# Base App - Boilerplate Moderno
+# JAM -- OUÇA MÚSICAS COM SEUS AMIGOS -- SEM APPS DE Música
 
 ![Laravel](https://img.shields.io/badge/Laravel-12.x-FF2D20?style=for-the-badge&logo=laravel)
 ![React](https://img.shields.io/badge/React-19.x-20232A?style=for-the-badge&logo=react)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-316192?style=for-the-badge&logo=postgresql)
 ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker)
 
-Este repositório é um **projeto casca (boilerplate)**, totalmente configurado e pronto para servir de base para novos projetos modernos. Ele já traz uma estrutura completa, com integração entre backend e frontend, ambiente Dockerizado, scripts de automação e exemplos de configuração para facilitar o início de qualquer aplicação.
+APLICAÇÃO JAM
 
 > **Objetivo:** Fornecer um ponto de partida robusto, padronizado e produtivo para novos projetos, economizando tempo com configurações iniciais.
 
@@ -51,8 +51,8 @@ Graças ao Docker e a um script de inicialização automatizado, colocar o proje
 
 **1. Clone o Repositório**
 ```bash
-git clone [URL_DO_SEU_REPOSITORIO]
-cd [NOME_DA_PASTA_DO_PROJETO]
+git clone https://github.com/ArturFonsecaDev/jam.git
+cd jam
 ```
 
 **2. Configure o Ambiente**
