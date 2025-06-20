@@ -7,7 +7,7 @@
 
 APLICAÇÃO JAM
 
-> **Objetivo:** Fornecer um ponto de partida robusto, padronizado e produtivo para novos projetos, economizando tempo com configurações iniciais.
+> **Objetivo:** Fornecer uma aplicação robusta para ouvir músicas em tempo real
 
 ---
 ## 📋 Índice
