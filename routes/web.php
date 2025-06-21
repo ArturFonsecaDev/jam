@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\JamRoom;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -15,6 +16,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('minha-jam', function () {
         return Inertia::render('minha-jam');
     })->name('minha-jam');
+});
+
+Route::get('test', function (){
+    return JamRoom::factory()->count(10)->create();
 });
 
 require __DIR__.'/settings.php';
