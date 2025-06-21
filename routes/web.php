@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\JamRoom\JamRoomController;
 use App\Models\JamRoom;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    return Inertia::render('welcome');
+    return redirect()->route('login');
 })->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -13,12 +14,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return Inertia::render('dashboard');
     })->name('dashboard');
 
-    Route::get('minha-jam', function () {
-        return Inertia::render('minha-jam');
-    })->name('minha-jam');
+    Route::get('minha-jam', [JamRoomController::class, 'index'])->name('jam-room.index');
 });
 
-Route::get('test', function (){
+Route::get('test', function () {
     return JamRoom::factory()->count(10)->create();
 });
 
