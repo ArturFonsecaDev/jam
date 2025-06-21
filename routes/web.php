@@ -10,11 +10,8 @@ Route::get('/', function () {
 })->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('dashboard', function () {
-        return Inertia::render('dashboard');
-    })->name('dashboard');
-
     Route::get('minha-jam', [JamRoomController::class, 'index'])->name('jam-room.index');
+    Route::get('minha-jam/create', [JamRoomController::class, 'create'])->name('jam-room.create');
 });
 
 Route::get('test', function () {

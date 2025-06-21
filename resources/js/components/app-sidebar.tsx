@@ -9,14 +9,14 @@ import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
     {
-        title: 'Criar Jam',
-        href: '/dashboard',
-        icon: Plus,
-    },
-    {
         title: 'Minha Jam',
         href: '/minha-jam',
         icon: Music,
+    },
+    {
+        title: 'Criar Jam',
+        href: '/minha-jam/criar',
+        icon: Plus,
     },
 ];
 
