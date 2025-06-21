@@ -1,5 +1,0 @@
-#!/bin/bash
-# Versão mínima que funciona, usando a ferramenta correta
-
-# Usamos 'docker compose exec' que entende o NOME DO SERVIÇO 'laravel.test'
-docker compose exec -ti laravel.test composer "$@"
