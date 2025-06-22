@@ -17,6 +17,7 @@ return new class extends Migration
             $table->ulid('room_code')->unique();
             $table->bigInteger('owner_id')->unsigned();
             $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
+            $table->boolean('is_playing')->default(false);
             $table->timestamps();
         });
     }

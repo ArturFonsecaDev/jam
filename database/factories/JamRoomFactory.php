@@ -23,6 +23,7 @@ class JamRoomFactory extends Factory
         return [
             'owner_id' => $user->id,
             'name' => $user->name . "'s " . 'Jam Room',
+            'is_playing' => $this->faker->boolean(50),
         ];
     }
 

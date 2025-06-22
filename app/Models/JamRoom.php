@@ -14,6 +14,7 @@ class JamRoom extends Model
     protected $fillable = [
         'name',
         'owner_id',
+        'is_playing',
     ];
 
     public function owner()
