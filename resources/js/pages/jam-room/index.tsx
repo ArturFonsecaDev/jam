@@ -1,9 +1,11 @@
 import AppLayout from '@/layouts/app-layout';
-import { Head } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
+import { CriarJamDialog } from '@/components/CriarJamDialog';
 
-export default function Dashboard() {
+export default function CriarJam() {
   return (
     <AppLayout>
+<<<<<<<< HEAD:resources/js/pages/jam-room/index.tsx
       <Head title="Jam" />
       <div className="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4">
         <div className="seção-boas-vindas">
@@ -28,6 +30,9 @@ export default function Dashboard() {
             Um encontro vibrante onde a música brota livre e a espontaneidade encontra a melodia, tecendo ritmos que se entrelaçam em uma dança
             espontânea de sons.
           </p>
+          <div className="mt-36 flex justify-center">
+            <CriarJamDialog />
+          </div>
         </div>
       </div>
     </AppLayout>
