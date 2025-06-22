@@ -5,7 +5,6 @@ import { CriarJamDialog } from '@/components/CriarJamDialog';
 export default function CriarJam() {
   return (
     <AppLayout>
-<<<<<<<< HEAD:resources/js/pages/jam-room/index.tsx
       <Head title="Jam" />
       <div className="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4">
         <div className="seção-boas-vindas">
