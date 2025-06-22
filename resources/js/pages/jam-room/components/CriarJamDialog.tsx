@@ -3,14 +3,12 @@ import {
   Dialog,
   DialogClose,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 
 export function CriarJamDialog() {
   return (
@@ -24,13 +22,9 @@ export function CriarJamDialog() {
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Criar Jam</DialogTitle>
-            <DialogDescription>
-              Defina o nome da sua jam musical. Clique em criar quando estiver pronto.
-            </DialogDescription>
           </DialogHeader>
           <div className="grid gap-4">
             <div className="grid gap-3">
-              <Label htmlFor="nome-jam">Nome da Jam</Label>
               <Input 
                 id="nome-jam" 
                 name="nomeJam" 
@@ -43,7 +37,7 @@ export function CriarJamDialog() {
             <DialogClose asChild>
               <Button variant="outline">Cancelar</Button>
             </DialogClose>
-            <Button type="submit" className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700">
+            <Button type="submit" className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white">
               Criar Jam
             </Button>
           </DialogFooter>

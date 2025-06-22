@@ -1,6 +1,6 @@
 import AppLayout from '@/layouts/app-layout';
-import { Head, Link } from '@inertiajs/react';
-import { CriarJamDialog } from '@/components/CriarJamDialog';
+import { Head } from '@inertiajs/react';
+import { CriarJamDialog } from './components/CriarJamDialog';
 
 interface User {
   id: number;
@@ -19,7 +19,7 @@ export default function JamRoom(jamRoomProps: JamRoomProps) {
     <AppLayout>
       <Head title="Jam" />
       <div className="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4">
-        <div className="seção-boas-vindas">
+        <div>
           <h1 className="mb-4 bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 bg-clip-text text-center text-4xl leading-tight font-bold text-transparent md:text-5xl">
             Seja bem-vindo {userName}, agora é só criar a sua Jam!
           </h1>
@@ -41,7 +41,7 @@ export default function JamRoom(jamRoomProps: JamRoomProps) {
             Um encontro vibrante onde a música brota livre e a espontaneidade encontra a melodia, tecendo ritmos que se entrelaçam em uma dança
             espontânea de sons.
           </p>
-          <div className="mt-36 flex justify-center">
+          <div className="mt-18 flex justify-center">
             <CriarJamDialog />
           </div>
         </div>
