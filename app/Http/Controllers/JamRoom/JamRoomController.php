@@ -12,9 +12,7 @@ class JamRoomController extends Controller
 
     public function index()
     {
-        return Inertia::render('jam-room/index', [
-            'user' => $this->getCurrentUser(),
-        ]);
+        return Inertia::render('jam-room/index');
     }
 
     private function getCurrentUser()
