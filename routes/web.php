@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    return redirect()->route('login');
+    return redirect()->route('jam-room.index');
 })->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
