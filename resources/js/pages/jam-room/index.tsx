@@ -13,7 +13,6 @@ interface JamRoomProps {
 
 export default function JamRoom(jamRoomProps: JamRoomProps) {
 
-  console.log('JamRoom props:', jamRoomProps);
   const userName = jamRoomProps.user.name.split(' ')[0];
 
   return (
