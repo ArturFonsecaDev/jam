@@ -12,6 +12,7 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('jam', [JamRoomController::class, 'index'])->name('jam-room.index');
     Route::get('jam/show', [JamRoomController::class, 'show'])->name('jam-room.show');
+    Route::post('jam', [JamRoomController::class, 'store'])->name('jam-room.store');
 });
 
 Route::get('test', function () {
