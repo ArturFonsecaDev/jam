@@ -7,13 +7,24 @@ interface User {
   name: string;
 }
 
+interface JamRoom {
+  id: number;
+  name: string;
+  room_code: string;
+  owner_id: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
 interface JamRoomProps {
-  user: User;
+  auth: {
+    user: User;
+  };
+  jamRoom?: JamRoom;
 }
 
 export default function JamRoom(jamRoomProps: JamRoomProps) {
-
-  const userName = jamRoomProps.user.name.split(' ')[0];
+  const userName = jamRoomProps.auth.user.name.split(' ')[0];
 
   return (
     <AppLayout>
