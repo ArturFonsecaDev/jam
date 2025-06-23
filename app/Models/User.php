@@ -45,4 +45,8 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function jamRoom(){
+        return $this->hasOne(JamRoom::class, 'owner_id');
+    }
 }
