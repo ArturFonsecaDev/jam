@@ -2,24 +2,30 @@
 
 namespace App\Http\Controllers\JamRoom;
 
-use Illuminate\Http\Request;
-use Inertia\Inertia;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
-use App\Http\Services\JamRoom\CreateRoomService;
 use App\Http\Requests\JamRoom\StoreJamRoomRequest;
+use App\Http\Services\JamRoom\CreateRoomService;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class JamRoomController extends Controller
 {
-
     public function index(Request $request)
     {
+        if ($request->user()->jamRoom()->first()) {
+            return redirect()->route('jam-room.show');
+        }
+
         return Inertia::render('jam-room/index');
     }
 
-    public function store(StoreJamRoomRequest $request){
+    public function store(StoreJamRoomRequest $request)
+    {
         $service = app(CreateRoomService::class);
-        $room = $service->handle($request->validated());
+        $ownerId = Auth::id();
+        $data = array_merge($request->validated(), ['owner_id' => $ownerId]);
+        $service->handle($data);
 
         return redirect()->route('jam-room.show')
             ->with('success', 'Jam Room created successfully.');
@@ -27,7 +33,7 @@ class JamRoomController extends Controller
 
     public function show(Request $request)
     {
-        $jamRoom = $request->user()->jamRoom();
+        $jamRoom = $request->user()->jamRoom()->first();
 
         return Inertia::render('jam-room/show', [
             'jamRoom' => $jamRoom,
