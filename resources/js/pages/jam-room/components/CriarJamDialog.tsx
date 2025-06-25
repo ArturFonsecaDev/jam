@@ -31,7 +31,7 @@ export function CriarJamDialog() {
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="grid gap-4">
           <DialogHeader>
             <DialogTitle>Criar Jam</DialogTitle>
           </DialogHeader>
