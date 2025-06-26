@@ -6,14 +6,14 @@ use Illuminate\Validation\ValidationException;
 
 abstract class Service
 {
-    public function rules(): array
+    protected function rules(): array
     {
         return [];
     }
 
-    public function handle(array $data) {}
+    abstract public function handle(array $data);
 
-    public function validate(array $data)
+    protected function validate(array $data)
     {
         $validator = validator($data, $this->rules());
 
