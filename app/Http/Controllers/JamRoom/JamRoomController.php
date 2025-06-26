@@ -33,6 +33,10 @@ class JamRoomController extends Controller
 
     public function show(Request $request)
     {
+        if (!$request->user()->jamRoom()->exists()) {
+            return redirect()->route('jam-room.index');
+        }
+
         $jamRoom = $request->user()->jamRoom()->first();
 
         return Inertia::render('jam-room/show', [
