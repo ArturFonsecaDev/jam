@@ -6,7 +6,7 @@ use App\Models\JamRoom;
 use App\Http\Services\Service;
 
 class CreateRoomService extends Service{
-    public function rules(): array{
+    protected function rules(): array{
         return [
             'name' => 'required|string',
             'owner_id' => 'required|integer|exists:users,id',
