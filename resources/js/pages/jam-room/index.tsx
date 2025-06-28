@@ -23,7 +23,7 @@ interface JamRoomProps {
   jamRoom?: JamRoom;
 }
 
-export default function JamRoom(jamRoomProps: JamRoomProps) {
+export default function Index(jamRoomProps: JamRoomProps) {
   const userName = jamRoomProps.auth.user.name.split(' ')[0];
 
   return (
