@@ -28,7 +28,7 @@ class JamRoomController extends Controller
         $service->handle($data);
 
         return redirect()->route('jam-room.show')
-            ->with('success', 'Jam Room created successfully.');
+            ->with('success', 'Jam criada com sucesso!');
     }
 
     public function show(Request $request)
