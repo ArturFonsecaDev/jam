@@ -1,5 +1,6 @@
 import AppLayout from '@/layouts/app-layout';
 import { Head } from '@inertiajs/react';
+import { DestroyJamDialog } from './components/ConfirmDeleteJamDialog';
 
 interface JamRoom {
   id: number;
@@ -25,6 +26,9 @@ export default function MinhaJam(JamRoomProps: JamRoomsProps) {
            {JamRoomProps.jamRoom.name} <br></br>Comece a Convidar Amigos para Ouvir a sua Jam em Conjunto! 
           </h1>
           <div className="my-8 flex items-center justify-center"></div>
+        </div>
+        <div className='flex flex-col items-center justify-center gap-4'>
+        <DestroyJamDialog jamRoomId={JamRoomProps.jamRoom.id}/>
         </div>
       </div>
     </AppLayout>
